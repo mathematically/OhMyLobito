@@ -1,44 +1,47 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "blocks": [
-    {
-      "alignment": "left",
-      "segments": [
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
         {
-              "foreground": "#9ECE6A",
-              "style": "plain",
-              "template": "\u279c",
-              "type": "text"
-            },
-            {
-              "foreground": "#7dcfff",
-              "properties": {
-                "style": "folder"
-              },
-              "style": "plain",
-              "template": " {{ .Path }}",
-          "type": "path"
-        },
-        {
-          "foreground": "#9ECE6A",
-          "foreground_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}#F7768E{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#BB9AF7{{ end }}",
-            "{{ if gt .Ahead 0 }}#BB9AF7{{ end }}",
-            "{{ if gt .Behind 0 }}#BB9AF7{{ end }}"
-          ],
-          "properties": {
-            "branch_icon": "",
-            "fetch_status": true
-          },
-          "style": "plain",
-          "template": " <#9ECE6A>(</>{{ .HEAD }}<#9ECE6A>)</>",
-          "type": "git"
+            "alignment": "left",
+            "segments": [
+                {
+                    "foreground": "#9ece6a",
+                    "foreground_templates": [
+                        "{{ if .Code }}#f7768e{{ else }}#9ece6a{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true
+                    },
+                    "style": "plain",
+                    "template": "\u279c",
+                    "type": "exit"
+                },
+                {
+                    "foreground": "#7dcfff",
+                    "style": "plain",
+                    "template": " {{ .Path }}",
+                    "type": "path"
+                },
+                {
+                    "foreground": "#9ECE6A",
+                    "foreground_templates": [
+                        "{{ if or (.Working.Changed) (.Staging.Changed) }}#F7768E{{ end }}",
+                        "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#BB9AF7{{ end }}",
+                        "{{ if gt .Ahead 0 }}#BB9AF7{{ end }}",
+                        "{{ if gt .Behind 0 }}#BB9AF7{{ end }}"
+                    ],
+                    "properties": {
+                        "branch_icon": "",
+                        "fetch_status": true
+                    },
+                    "style": "plain",
+                    "template": " <#9ECE6A>(</>{{ .HEAD }}<#9ECE6A>)</>",
+                    "type": "git"
+                }
+            ],
+            "type": "prompt"
         }
-      ],
-      "type": "prompt"
-    }
-  ],
-  "final_space": true,
-  "version": 2
+    ],
+    "final_space": true,
+    "version": 2
 }
